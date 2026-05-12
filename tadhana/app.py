@@ -93,7 +93,15 @@ def login():
     except Exception as e:
         print(e)
         return jsonify({'error': 'Something went wrong.'}), 500
+except Exception as e:
+        print(e)
+        return jsonify({'error': 'Something went wrong.'}), 500
 
+# ── LOGOUT ────────────────────────────────────────────
+@app.route('/api/logout', methods=['POST'])
+def logout():
+    return jsonify({'success': True, 'message': 'Logged out successfully.'})
+    
 # ── GET ALL READINGS ──────────────────────────────────
 @app.route('/api/readings/<int:user_id>', methods=['GET'])
 def get_readings(user_id):

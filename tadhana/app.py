@@ -93,9 +93,6 @@ def login():
     except Exception as e:
         print(e)
         return jsonify({'error': 'Something went wrong.'}), 500
-except Exception as e:
-        print(e)
-        return jsonify({'error': 'Something went wrong.'}), 500
 
 # ── LOGOUT ────────────────────────────────────────────
 @app.route('/api/logout', methods=['POST'])

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tadhana - History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Tagalog&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+<div class="stars-layer" id="stars"></div>
+<div class="toast" id="toast"></div>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <div class="nav-orb"></div>
+    <span class="nav-name">T A D H A N A</span>
+  </a>
+  <div class="nav-tabs">
+    <a class="nav-tab " href="index.html">Main</a>
+    <a class="nav-tab " href="personal-reading.html">Personal</a>
+    <a class="nav-tab " href="three-cards.html">3 Cards</a>
+    <a class="nav-tab active" href="history.html">History</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-profile-btn" href="index.html">Profile</a>
+    <div class="nav-avatar">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+    </div>
+  </div>
+</nav>
+<main id="page-history" class="page active">
+  <div style="max-width:1040px;margin:0 auto;padding:48px 48px 80px;">
+    <h1 class="history-heading">Your Tadhana History</h1>
+    <div class="history-grid" id="historyGrid"></div>
+    <div id="historyDetail" style="margin-top:36px;"></div>
+  </div>
+</main>
+<script src="/static/js/data.js"></script>
+<script src="/static/js/shared.js"></script>
+<script src="/static/js/history.js"></script>
+</body>
+</html>

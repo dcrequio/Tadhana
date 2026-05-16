@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tadhana - Personal Reading</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Tagalog&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+<div class="stars-layer" id="stars"></div>
+<div class="toast" id="toast"></div>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <div class="nav-orb"></div>
+    <span class="nav-name">T A D H A N A</span>
+  </a>
+  <div class="nav-tabs">
+    <a class="nav-tab " href="index.html">Main</a>
+    <a class="nav-tab active" href="personal-reading.html">Personal</a>
+    <a class="nav-tab " href="three-cards.html">3 Cards</a>
+    <a class="nav-tab " href="history.html">History</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-profile-btn" href="index.html">Profile</a>
+    <div class="nav-avatar">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+    </div>
+  </div>
+</nav>
+<main id="page-reading" class="page active">
+  <div class="reading-eyebrow">Ang Iyong Pagbabasa</div>
+  <h1 class="reading-heading">Personal Reading</h1>
+  <div id="personalApp">
+    <div class="deck-stage" ref="stage" :class="{ 'is-shuffling': isShuffling }">
+      <div v-for="(card, i) in deck" :key="card.uid" class="deck-card-wrap" :class="{ 'split-card': isSplitting && isSelected(i) }" :style="cardStyle(card)" @click="selectCard(i)">
+        <div class="deck-card" :class="{ selected: isSelected(i) }"><img :src="CARD_BACK" alt="card" /></div>
+      </div>
+    </div>
+    <div class="deck-actions">
+      <button class="btn-deck btn-shuffle" :disabled="isShuffling || isSplitting" @click="shuffleDeck">Shuffle</button>
+      <button class="btn-deck btn-split" :disabled="isShuffling || isSplitting" @click="revealReading">Reveal</button>
+    </div>
+    <div class="reading-hint">Select one card for your personal reading</div>
+    <transition name="reading-fade" mode="out-in">
+      <div class="details-layout" v-if="revealed && activeCard" style="max-width:1040px;margin:52px auto 0;" :key="activeCard.name">
+        <div class="details-left"><div class="revealed-card-wrap"><div class="revealed-card-img"><img :src="activeCard.img" :alt="activeCard.name" /></div><div class="revealed-card-name">{{ activeCard.name }}</div><div class="revealed-card-sub">{{ activeCard.sub }}</div></div></div>
+        <div class="details-right"><div class="ppf-section"><div class="ppf-label ppf-label-present"><span class="ppf-dot ppf-dot-present"></span>Personal Reading</div><p class="ppf-text">{{ personalText }}</p></div></div>
+      </div>
+    </transition>
+  </div>
+</main>
+<script src="/static/js/data.js"></script>
+<script src="/static/js/shared.js"></script>
+<script src="/static/js/vue.global.prod.js"></script>
+<script src="/static/js/personal-reading.js"></script>
+</body>
+</html>

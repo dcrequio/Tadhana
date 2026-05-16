@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tadhana - Main</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Tagalog&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+<div class="stars-layer" id="stars"></div>
+<div class="toast" id="toast"></div>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <div class="nav-orb"></div>
+    <span class="nav-name">T A D H A N A</span>
+  </a>
+  <div class="nav-tabs">
+    <a class="nav-tab active" href="index.html">Main</a>
+    <a class="nav-tab " href="personal-reading.html">Personal</a>
+    <a class="nav-tab " href="three-cards.html">3 Cards</a>
+    <a class="nav-tab " href="history.html">History</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-profile-btn" href="index.html">Profile</a>
+    <div class="nav-avatar">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+    </div>
+  </div>
+</nav>
+<main id="page-main" class="page active">
+  <div style="max-width:960px;margin:0 auto;padding:56px 48px 80px;">
+    <div class="about-eyebrow">Ang Iyong Kapalaran</div>
+    <h1 class="about-heading">About Tadhana</h1>
+    <div class="about-content-area">
+      <p class="about-objective">
+        <strong>Tadhana</strong> is a Filipino-rooted tarot reading companion, blending ancient Baybayin wisdom with the timeless language of the cards. Our goal is to offer <strong>personal, mystical guidance</strong> rooted in your intention, your birthdate, and the energies that surround you. Every reading is yours alone; no two destinies are ever the same.
+      </p>
+      <div class="about-image-box">
+        <div class="about-card-fan" id="aboutFan"></div>
+      </div>
+      <div class="about-features">
+        <a class="about-feature" href="three-cards.html">
+          <div class="about-feature-icon">Past</div>
+          <div class="about-feature-title">Past ? Present ? Future</div>
+          <p class="about-feature-desc">Three-card spreads that illuminate where you've been, where you stand, and where fate is guiding you.</p>
+        </a>
+        <a class="about-feature" href="personal-reading.html">
+          <div class="about-feature-icon">One</div>
+          <div class="about-feature-title">Personal Readings</div>
+          <p class="about-feature-desc">Each reading is shaped by the energies unique to you. Shuffle, choose, and reveal one card.</p>
+        </a>
+        <a class="about-feature" href="history.html">
+          <div class="about-feature-icon">Log</div>
+          <div class="about-feature-title">Reading History</div>
+          <p class="about-feature-desc">Every revelation is saved. Return to past readings and trace the thread of your unfolding story.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="/static/js/data.js"></script>
+<script src="/static/js/shared.js"></script>
+<script src="/static/js/main.js"></script>
+</body>
+</html>

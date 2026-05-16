@@ -21,33 +21,53 @@ def get_db():
 # ── Serve HTML pages ──────────────────────────────────
 @app.route('/')
 def index():
+    return render_template('frontpage.html')
+
+@app.route('/frontpage.html')
+def frontpage():
+    return render_template('frontpage.html')
+
+@app.route('/login.html')
+def login_page():
     return render_template('login.html')
 
 @app.route('/index')
+@app.route('/index.html')
 def home():
     return render_template('index.html')
 
 @app.route('/readings')
+@app.route('/readings.html')
 def readings():
     return render_template('readings.html')
 
 @app.route('/new-reading')
+@app.route('/new-reading.html')
 def new_reading():
     return render_template('new-reading.html')
 
 @app.route('/edit-reading')
+@app.route('/edit-reading.html')
 def edit_reading():
     return render_template('edit-reading.html')
 
 @app.route('/history')
+@app.route('/history.html')
 def history():
     return render_template('history.html')
 
+@app.route('/profile')
+@app.route('/profile.html')
+def profile():
+    return render_template('profile.html')
+
 @app.route('/personal-reading')
+@app.route('/personal-reading.html')
 def personal_reading():
     return render_template('personal-reading.html')
 
 @app.route('/three-cards')
+@app.route('/three-cards.html')
 def three_cards():
     return render_template('three-cards.html')
 

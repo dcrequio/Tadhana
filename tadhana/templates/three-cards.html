@@ -1,3 +1,4 @@
+{% raw %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,31 +23,37 @@
     <a class="nav-tab " href="history.html">History</a>
   </div>
   <div class="nav-right">
-    <a class="nav-profile-btn" href="index.html">Profile</a>
+    <a class="nav-profile-btn" href="profile.html">Profile</a>
     <div class="nav-avatar">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
     </div>
   </div>
 </nav>
 <main id="page-reading" class="page active">
-  <div class="reading-eyebrow">Ang Iyong Pagbabasa</div>
+  <div class="reading-eyebrow">✦ Ang Iyong Pagbabasa ✦</div>
   <h1 class="reading-heading">3 Cards</h1>
   <div id="threeCardsApp">
-    <div class="deck-stage" ref="stage" :class="{ 'is-shuffling': isShuffling }">
+    <div class="reading-mode-toggle">
+      <a class="mode-btn" href="personal-reading.html">Personal Reading</a>
+      <a class="mode-btn active" href="three-cards.html">3 Cards</a>
+    </div>
+    <div class="deck-stage" v-if="!revealed" ref="stage" :class="{ 'is-shuffling': isShuffling }">
       <div v-for="(card, i) in deck" :key="card.uid" class="deck-card-wrap" :class="{ 'split-card': isSplitting && isSelected(i) }" :style="cardStyle(card)" @click="selectCard(i)">
         <div class="deck-card" :class="{ selected: isSelected(i) }"><img :src="CARD_BACK" alt="card" /></div>
       </div>
     </div>
-    <div class="selection-count">Selected {{ selectedSlots.length }} / 3</div>
-    <div class="deck-actions">
+    <div class="selection-count" v-if="!revealed">Selected {{ selectedSlots.length }} / 3</div>
+    <div class="deck-actions" v-if="!revealed">
       <button class="btn-deck btn-shuffle" :disabled="isShuffling || isSplitting" @click="shuffleDeck">Shuffle</button>
       <button class="btn-deck btn-split" :disabled="isShuffling || isSplitting" @click="revealReading">Reveal</button>
     </div>
-    <div class="reading-hint">Select three cards for past, present, and future</div>
+    <div class="reading-hint" v-if="!revealed">✦ &nbsp; Select three cards for past, present, and future &nbsp; ✦</div>
     <transition name="reading-fade" mode="out-in">
-      <div class="details-layout" v-if="revealed && activeSpread.length" style="max-width:1040px;margin:52px auto 0;">
-        <div class="details-left"><div class="spread-revealed-grid"><div class="spread-revealed-card" v-for="item in activeSpread" :key="item.position"><div class="spread-position">{{ item.position }}</div><div class="spread-revealed-img"><img :src="item.img" :alt="item.name" /></div><div class="spread-card-name">{{ item.name }}</div></div></div></div>
-        <div class="details-right"><div class="ppf-section" v-for="item in activeSpread" :key="item.position"><div class="ppf-label" :class="item.labelClass"><span class="ppf-dot" :class="item.dotClass"></span>{{ item.position }}</div><p class="ppf-text">{{ item.text }}</p></div></div>
+      <div class="reading-result-shell" v-if="revealed && activeSpread.length">
+        <div class="details-layout" style="max-width:1040px;margin:0 auto;">
+          <div class="details-left"><div class="spread-revealed-grid"><div class="spread-revealed-card" v-for="item in activeSpread" :key="item.position"><div class="spread-position">{{ item.position }}</div><div class="spread-revealed-img"><img :src="item.img" :alt="item.name" /></div><div class="spread-card-name">{{ item.name }}</div></div></div></div>
+          <div class="details-right"><div class="ppf-section" v-for="item in activeSpread" :key="item.position"><div class="ppf-label" :class="item.labelClass"><span class="ppf-dot" :class="item.dotClass"></span>{{ item.position }}</div><p class="ppf-text">{{ item.text }}</p></div></div>
+        </div>
       </div>
     </transition>
   </div>
@@ -57,3 +64,4 @@
 <script src="/static/js/three-cards.js"></script>
 </body>
 </html>
+{% endraw %}

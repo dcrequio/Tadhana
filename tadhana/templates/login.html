@@ -1,3 +1,4 @@
+{% raw %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,6 +164,7 @@ createApp({
           this.login.feedbackType = 'success';
           localStorage.setItem('user_id', data.user_id);
           localStorage.setItem('username', data.name);
+          localStorage.setItem('email', data.email);
           setTimeout(() => window.location.href = '/index.html', 1000);
         }
       } catch (e) {
@@ -225,3 +227,4 @@ for (let i = 0; i < 120; i++) {
 </script>
 </body>
 </html>
+{% endraw %}

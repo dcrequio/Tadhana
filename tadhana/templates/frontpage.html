@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tadhana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Tagalog&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body class="frontpage-body">
+<div class="stars-layer" id="stars"></div>
+<main class="frontpage">
+  <div class="frontpage-orb"></div>
+  <div class="about-eyebrow">Ang Iyong Kapalaran</div>
+  <h1 class="frontpage-title">T A D H A N A</h1>
+  <p class="frontpage-copy">A Filipino-rooted tarot companion for personal readings, three-card guidance, and saved reflections.</p>
+  <div class="frontpage-actions">
+    <a class="btn-deck btn-split" href="/login.html">Enter</a>
+    <a class="btn-deck btn-shuffle" href="/login.html">Log In</a>
+  </div>
+</main>
+<script>
+  var layer = document.getElementById('stars');
+  for (var i = 0; i < 130; i++) {
+    var star = document.createElement('span');
+    var size = Math.random() * 2.2 + 0.8;
+    star.className = 'star';
+    star.style.width = size + 'px';
+    star.style.height = size + 'px';
+    star.style.left = (Math.random() * 100) + '%';
+    star.style.top = (Math.random() * 100) + '%';
+    star.style.setProperty('--d', (2 + Math.random() * 4) + 's');
+    star.style.setProperty('--dl', (Math.random() * 3) + 's');
+    star.style.setProperty('--lo', Math.random() * 0.2);
+    star.style.setProperty('--hi', 0.45 + Math.random() * 0.45);
+    layer.appendChild(star);
+  }
+</script>
+</body>
+</html>

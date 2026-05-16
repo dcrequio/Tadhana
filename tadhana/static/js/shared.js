@@ -55,7 +55,7 @@
     el.textContent = message;
     el.classList.add('show');
     clearTimeout(Tadhana.toastTimer);
-    Tadhana.toastTimer = setTimeout(function() { el.classList.remove('show'); }, 1800);
+    Tadhana.toastTimer = setTimeout(function() { el.classList.remove('show'); }, 3000);
   };
 
   Tadhana.today = function() {
@@ -155,7 +155,7 @@
     var layer = document.getElementById('stars');
     if (!layer) return;
     layer.innerHTML = '';
-    for (var i = 0; i < 80; i++) {
+    for (var i = 0; i < 130; i++) {
       var star = document.createElement('span');
       star.className = 'star';
       var size = Math.random() * 2.2 + 0.8;
@@ -175,12 +175,16 @@
     var fan = document.getElementById('aboutFan');
     if (!fan || !window.TAROT_CARDS) return;
     fan.innerHTML = '';
-    window.TAROT_CARDS.slice(0, 5).forEach(function(card, i) {
-      var img = document.createElement('img');
-      img.src = card.img;
-      img.alt = card.name;
-      img.style.setProperty('--i', i - 2);
-      fan.appendChild(img);
+    var rotations = [-12, -6, 0, 6, 12];
+    window.TAROT_CARDS.slice().sort(function() { return Math.random() - 0.5; }).slice(0, 5).forEach(function(card, i) {
+      var div = document.createElement('div');
+      var rot = rotations[i];
+      div.className = 'about-fan-card';
+      div.style.transform = 'rotate(' + rot + 'deg)';
+      div.innerHTML = '<img src="' + card.img + '" alt="' + card.name + '" />';
+      div.onmouseenter = function() { div.style.transform = 'rotate(0deg) translateY(-10px) scale(1.06)'; };
+      div.onmouseleave = function() { div.style.transform = 'rotate(' + rot + 'deg)'; };
+      fan.appendChild(div);
     });
   };
 
